@@ -93,6 +93,7 @@ fetch("https://picsum.photos/v2/list")
 			contactElement_img.src = download_url
 			// img    Attribute    alt   hinzufügen
 			contactElement_img.atr = `Bild id ${id} vom Author ${author}`;
+			contactElement_img.id = `${id}`;
 
 
 			// !! image in a-Tag rein  und dem a-Tag download_url geben, damit es beim anklicken großes bild gibt
@@ -105,7 +106,7 @@ fetch("https://picsum.photos/v2/list")
 			// Attribute target   _blank,    -> damit neues Fenster aufgeht
 			// ! contactElement_aTag.target = '_blank';
 			// Attribute   id   mitgeben, damit man click mit eventListener später abfangen kann
-			contactElement_aTag.id = `${id}`;
+			// contactElement_aTag.id = `${id}`;
 			download_url_Array.push(download_url);
 			console.log(download_url_Array);
 
@@ -138,22 +139,47 @@ fetch("https://picsum.photos/v2/list")
 
 console.log(download_url_Array);
 
-// Timeout wertet 1 Sek und ruft dann erst Array von fetch API ab, somit sind die Array daten da.
-setTimeout(function () {
-	console.log(download_url_Array)
-	download_url_Array
 
 
-	const fiktiverBtnImg = document.querySelector('img');
+document.addEventListener("click", function (e) {
+	console.log("in click");
+	const fiktiverBtnImg = document.querySelectorAll('img');
 
-	if (fiktiverBtnImg) {
-		fiktiverBtnImg.addEventListener('click', function (event) {
-			console.log("in event listener");
-			console.log(event);
+	// Timeout wertet 1 Sek und ruft dann erst Array von fetch API ab, somit sind die Array daten da.
+	setTimeout(function () {
+		console.log(download_url_Array)
+		
 
-		})
-	}
-	
 
-}, 1000)
+
+		console.log(fiktiverBtnImg.length)
+
+		for (let i = 0; i < fiktiverBtnImg.length; i++) {
+			console.log("in for schleife");
+			fiktiverBtnImg[i].addEventListener('click', function (event) {
+				console.log("in event listener");
+				console.log(event);
+
+				console.log(e.target.id)
+				console.log(event.target.id)
+
+				console.log(download_url_Array)
+				const download_url_Array2 = download_url_Array
+				console.log(download_url_Array2)
+				const urlAusArray = download_url_Array2[i];
+			
+				// Url von dem Bild das geklickt wurde
+				console.log(urlAusArray)
+
+				window.open(`${urlAusArray}`,"_blank","width=500,height=500");
+				// 
+
+			});
+
+		}
+
+	},1000);
+
+
+})
 
