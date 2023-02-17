@@ -2,23 +2,24 @@ body {
     display: flex;
     flex-wrap: wrap;
 
-figure{
-    background-color: red;
-    max-width: 250px;
-    max-height: 200px;
-    text-align: center;
-    padding: 10px;
-    border: 2px solid grey;
-    border-radius: 10px;
-    overflow: hidden;
-
-    img{
-        background-color: greenyellow;
-        width: 90%;
-        height: 80%;
+    figure {
+        background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+        max-width: 250px;
+        max-height: 200px;
+        text-align: center;
+        padding: 10px;
+        border: 2px solid grey;
         border-radius: 10px;
-        cursor: pointer;
+        overflow: hidden;
 
+        img {
+            background-color: greenyellow;
+            width: 90%;
+            height: 80%;
+            border-radius: 10px;
+            cursor: pointer;
+
+        }
     }
-}
 }

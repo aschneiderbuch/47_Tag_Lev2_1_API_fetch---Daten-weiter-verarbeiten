@@ -3,7 +3,8 @@ body {
   flex-wrap: wrap;
 }
 body figure {
-  background-color: red;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(90deg, rgb(131, 58, 180) 0%, rgb(253, 29, 29) 50%, rgb(252, 176, 69) 100%);
   max-width: 250px;
   max-height: 200px;
   text-align: center;
