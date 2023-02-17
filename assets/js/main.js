@@ -141,36 +141,49 @@ console.log(download_url_Array);
 
 
 
+
+//   hört auf ganzes document beim clicken
 document.addEventListener("click", function (e) {
 	console.log("in click");
+	// hört auf alle img  clicks
 	const fiktiverBtnImg = document.querySelectorAll('img');
 
-	// Timeout wertet 1 Sek und ruft dann erst Array von fetch API ab, somit sind die Array daten da.
+	// Timeout wertet 1 Sek und ruft dann erst Array von fetch API ab, somit sind die Array Daten da.
+	// obwohl Asyncron geladen wird ;-)
 	setTimeout(function () {
 		console.log(download_url_Array)
 		
 
 
-
+		// Anzahl der img die von der API kommen
 		console.log(fiktiverBtnImg.length)
 
+		// Schleife für alle img, damit alle ein click bekommen
 		for (let i = 0; i < fiktiverBtnImg.length; i++) {
 			console.log("in for schleife");
+			
+			// holt sich button i = 0    dann aus array platz 0  raus holen     
+			// id die img hinzugefügt wurde, wird nicht gebraucht, lässt sich aber mit event.target.id    auslesen    aber i == id   in diesem fall
 			fiktiverBtnImg[i].addEventListener('click', function (event) {
 				console.log("in event listener");
 				console.log(event);
 
 				console.log(e.target.id)
+				// id die img hinzugefügt wurde, wird nicht gebraucht
 				console.log(event.target.id)
 
 				console.log(download_url_Array)
 				const download_url_Array2 = download_url_Array
 				console.log(download_url_Array2)
+				// holt sich url passend zum bild aus dem array
 				const urlAusArray = download_url_Array2[i];
 			
 				// Url von dem Bild das geklickt wurde
 				console.log(urlAusArray)
 
+				// dadurch geht ein extra kleines fenster auf, in dem das url bild erscheint ;-) 
+				// wollte man nur einen neuen Browser tap mit dem Bild machen,
+				// ginge das einfacher, so wie oben in fetch mit dem a-Tag usw.    aber eben nicht als kleines extra Fenster.
 				window.open(`${urlAusArray}`,"_blank","width=500,height=500");
 				// 
 
